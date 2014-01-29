@@ -3,11 +3,13 @@
 namespace Patlenain\VideotekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Type
  *
- * @ORM\Table()
+ * @ORM\Table(name="type")
  * @ORM\Entity(repositoryClass="Patlenain\VideotekBundle\Entity\TypeRepository")
  * @UniqueEntity(fields = "code")
  */

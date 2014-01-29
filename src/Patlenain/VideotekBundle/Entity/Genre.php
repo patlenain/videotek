@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Genre
  *
- * @ORM\Table()
+ * @ORM\Table(name="genre")
  * @ORM\Entity(repositoryClass="Patlenain\VideotekBundle\Entity\GenreRepository")
  * @UniqueEntity(fields = "code")
  */

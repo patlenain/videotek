@@ -4,11 +4,13 @@ namespace Patlenain\VideotekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Film
  *
- * @ORM\Table()
+ * @ORM\Table(name="film")
  * @ORM\Entity(repositoryClass="Patlenain\VideotekBundle\Entity\FilmRepository")
  */
 class Film
@@ -71,6 +73,17 @@ class Film
      * @Constraints\NotNull
      */
     private $support;
+
+    /**
+     * @var Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Genre", cascade="persist")
+     */
+    private $genres;
+
+    public function __construct() {
+    	$this->genres = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -218,5 +231,35 @@ class Film
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Add genre
+     *
+     * @param Genre $genre
+     * @return Film
+     */
+    public function addGenre(Genre $genre) {
+    	$this->genres[] = $genre;
+    	return $this;
+    }
+
+    /**
+     * Remove genre
+     *
+     * @param Genre $genre
+     * @return Film
+     */
+    public function removeGenre(Genre $genre) {
+    	$this->genres->removeElement($genre);
+    	return $this;
+    }
+
+    /**
+     * Get genres
+     * @return Collection
+     */
+    public function getGenres() {
+    	return $this->genres;
     }
 }
