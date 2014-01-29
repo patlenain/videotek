@@ -22,6 +22,7 @@
 	<buildpathentry kind="src" path="vendor/kriswallsmith/assetic/src"/>
 	<buildpathentry kind="src" path="vendor/composer"/>
 	<buildpathentry kind="src" path="vendor/doctrine/annotations/lib"/>
+	<buildpathentry kind="src" path="vendor/doctrine/doctrine-fixtures-bundle/Doctrine"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 	<buildpathentry kind="src" path="vendor/doctrine/collections/lib"/>
 	<buildpathentry kind="src" path="vendor/sensio/generator-bundle"/>

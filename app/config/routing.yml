@@ -1,0 +1,5 @@
+patlenain_videotek:
+    resource: "@PatlenainVideotekBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
