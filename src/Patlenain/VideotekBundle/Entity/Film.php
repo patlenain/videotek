@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints;
  * Film
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Patlenain\VideotekBundle\Entity\Film Repository")
+ * @ORM\Entity(repositoryClass="Patlenain\VideotekBundle\Entity\FilmRepository")
  */
 class Film
 {
