@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class SupportRepository extends EntityRepository
 {
+	/**
+	 * @return QueryBuilder
+	 */
+	function listAll()
+	{
+		return $this->createQueryBuilder('support')
+			->addOrderBy('support.libelle', 'DESC');
+	}
 }

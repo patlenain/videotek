@@ -3,3 +3,6 @@ patlenain_videotek:
     type:     annotation
     prefix:   /
 
+patlenain_videotek_support:
+    type:     rest
+    resource: Patlenain\VideotekBundle\Controller\SupportController

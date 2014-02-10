@@ -5,15 +5,20 @@
         <title>Videotek</title>
         <link rel="stylesheet" href="{{ asset('bundles/patlenainvideotek/css/videotek.css') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('bundles/patlenainvideotek/css/ext-theme-neptune/ext-theme-neptune-all.css') }}" type="text/css" media="all" />
-        {% block stylesheets %}
-        {% endblock %}
         <link rel="icon" type="image/png" href="{{ asset('bundles/patlenainvideotek/images/icon.png') }}" />
-        <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/ext-all.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/ext-all-debug.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/ext-lang-fr.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/ext-theme-neptune.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/videotek.js') }}" ></script>
-        {% block javascripts %}
-        {% endblock %}
+<script type="text/javascript">
+Ext.application({
+	name: "Videotek",
+	appFolder: "{{ asset("bundles/patlenainvideotek/js/Videotek") }}",
+	autoCreateViewport: true,
+	enableQuickTips: true,
+	controllers: [ "Support" ]
+});
+</script>
     </head>
 <body>
 </body>
