@@ -9,8 +9,13 @@ Ext.define("Videotek.view.SupportsList", {
 		text: "Libellé",
 		dataIndex: "libelle"
 	}],
+	selType: "rowmodel",
+	selMode: "SINGLE",
 	buttons: [{
-		text: 'Nouveau support',
-		action: 'create'
+		text: "Nouveau support",
+		action: "create"
+	}, {
+		text: "Supprimer support",
+		action: "delete"
 	}]
 });

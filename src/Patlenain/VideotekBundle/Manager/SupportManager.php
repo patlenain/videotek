@@ -49,6 +49,14 @@ class SupportManager {
 	}
 
 	/**
+	 * @param Support $support
+	 */
+	public function deleteSupport($support) {
+		$this->em->remove($support);
+		$this->em->flush();
+	}
+
+	/**
 	 * @return SupportRepository
 	 */
 	public function getRepository()

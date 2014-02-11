@@ -66,4 +66,16 @@ class SupportController extends FOSRestController {
     	}
     	return array('success' => false, 'message' => $form->getErrorsAsString());
     }
+
+    /**
+     * @View
+     */
+    public function deleteAction($id) {
+    	$support = $this->get('patlenain_videotek.support_manager')->getSupport($id);
+    	if (!$support) {
+    		throw $this->createNotFoundException('Support inexistant');
+    	}
+    	$this->get('patlenain_videotek.support_manager')->deleteSupport($support);
+    	return array('success' => true, 'message' => "Support supprimé");
+    }
 }

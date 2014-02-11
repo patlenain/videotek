@@ -1,13 +1,13 @@
-Ext.define("Videotek.controller.Support", {
-	extend: "Ext.app.Controller",
-	views: [ "SupportsList", "SupportCreate", "SupportEdit" ],
-	models: [ "Support" ],
-	stores: [ "Supports" ],
+Ext.define('Videotek.controller.Support', {
+	extend: 'Ext.app.Controller',
+	views: [ 'SupportsList', 'SupportCreate', 'SupportEdit' ],
+	models: [ 'Support' ],
+	stores: [ 'Supports' ],
 
-/*	refs: [{
-		ref: 'supportslist',
-		selector: 'panel'
-	}],*/
+	refs: [{
+		ref: 'supportsList',
+		selector: 'supportsList'
+	}],
 
 	init: function() {
 		this.control({
@@ -16,6 +16,9 @@ Ext.define("Videotek.controller.Support", {
 			},
 			'supportsList button[action=create]': {
 				click: this.createSupport
+			},
+			'supportsList button[action=delete]': {
+				click: this.deleteSupport
 			},
 			'supportCreate button[action=save]': {
 				click: this.newSupport
@@ -34,7 +37,6 @@ Ext.define("Videotek.controller.Support", {
 	newSupport: function(button) {
 		var win = button.up('window');
 		var form = win.down('form');
-//		var record = form.getRecord();
 		var values = form.getValues();
 
 		var record = Ext.create('Videotek.model.Support');
@@ -59,5 +61,20 @@ Ext.define("Videotek.controller.Support", {
 		record.set(values);
 		win.close();
 		this.getSupportsStore().sync();
+	},
+
+	deleteSupport: function(button) {
+		var selection = this.getSupportsList().
+				getSelectionModel().getSelection();
+		if (selection[0]) {
+			var message = Ext.String.format("Voulez-vous supprimer le support {0} ?",
+					selection[0].get('libelle'));
+			Ext.Msg.confirm("Suppression", message, function(bouton) {
+				if (bouton == 'yes') {
+					this.getSupportsStore().remove(selection[0]);
+					this.getSupportsStore().sync();
+				}
+			}, this);
+		}
 	}
 });
