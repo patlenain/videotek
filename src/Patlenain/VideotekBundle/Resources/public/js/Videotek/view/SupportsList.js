@@ -7,7 +7,8 @@ Ext.define("Videotek.view.SupportsList", {
 		dataIndex: "code"
 	}, {
 		text: "Libellé",
-		dataIndex: "libelle"
+		dataIndex: "libelle",
+		flex: 1
 	}],
 	selType: "rowmodel",
 	selMode: "SINGLE",
