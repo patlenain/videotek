@@ -38,7 +38,7 @@ class Support
      *
      * @ORM\Column(name="libelle", type="string", length=255)
      * @Constraints\NotBlank
-     * @Constraints\Length(min=3, max=255)
+     * @Constraints\Length(min="3", max="255")
      */
     private $libelle;
 
