@@ -2,9 +2,9 @@ Ext.define("Videotek.store.Supports", {
 	extend: "Ext.data.Store",
 	model: "Videotek.model.Support",
 	proxy: {
-		type: 'rest',
-		url: 'api/supports',
+		type: 'ajax',
 		format: 'json',
+		url: 'api/support/list',
 		reader: {
 			type: 'json',
 			root: 'data'

@@ -14,7 +14,6 @@ class SupportType extends AbstractType {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder
-			->add('id', 'integer')
 			->add('code', 'text', array(
 				'max_length' => 15
 			))

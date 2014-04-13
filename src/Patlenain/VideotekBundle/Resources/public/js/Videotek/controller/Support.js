@@ -35,15 +35,40 @@ Ext.define('Videotek.controller.Support', {
 	},
 
 	newSupport: function(button) {
+		var me = this;
 		var win = button.up('window');
 		var form = win.down('form');
-		var values = form.getValues();
-
-		var record = Ext.create('Videotek.model.Support');
-		record.set(values);
-		win.close();
-		this.getSupportsStore().add(record);
-		this.getSupportsStore().sync();
+		if (form.isValid()) {
+			form.submit({
+				url: 'api/support/create',
+				success: function(form, action) {
+					Ext.Msg.show({
+						title: "Ajout d'un support",
+						msg: "Support ajouté",
+						buttons: Ext.Msg.OK,
+						icon: Ext.Msg.INFO
+					});
+					win.close();
+					me.getSupportsStore().reload();
+				},
+				failure: function(form, action) {
+					if (action.result.form) {
+						if (action.result.form.children.code.errors) {
+							form.findField('code').markInvalid(action.result.form.children.code.errors);
+						}
+						if (action.result.form.children.libelle.errors) {
+							form.findField('libelle').markInvalid(action.result.form.children.libelle.errors);
+						}
+					}
+					Ext.Msg.show({
+						title: "Ajout d'un support",
+						msg: "Erreur",
+						buttons: Ext.Msg.OK,
+						icon: Ext.Msg.ERROR
+					});
+				}
+			});
+		}
 	},
 
 	editSupport: function(grid, record) {
@@ -53,14 +78,40 @@ Ext.define('Videotek.controller.Support', {
 	},
 
 	updateSupport: function(button) {
+		var me = this;
 		var win = button.up('window');
 		var form = win.down('form');
-		var record = form.getRecord();
-		var values = form.getValues();
-
-		record.set(values);
-		win.close();
-		this.getSupportsStore().sync();
+		if (form.isValid()) {
+			form.submit({
+				url: 'api/support/update/' + form.getRecord().get('id'),
+				success: function(form, action) {
+					Ext.Msg.show({
+						title: "Mettre à jour un support",
+						msg: "Support mis à jour",
+						buttons: Ext.Msg.OK,
+						icon: Ext.Msg.INFO
+					});
+					win.close();
+					me.getSupportsStore().reload();
+				},
+				failure: function(form, action) {
+					if (action.result.form) {
+						if (action.result.form.children.code.errors) {
+							form.findField('code').markInvalid(action.result.form.children.code.errors);
+						}
+						if (action.result.form.children.libelle.errors) {
+							form.findField('libelle').markInvalid(action.result.form.children.libelle.errors);
+						}
+					}
+					Ext.Msg.show({
+						title: "Mettre à jour un support",
+						msg: "Erreur",
+						buttons: Ext.Msg.OK,
+						icon: Ext.Msg.ERROR
+					});
+				}
+			});
+		}
 	},
 
 	deleteSupport: function(button) {

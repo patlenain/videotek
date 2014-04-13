@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="support")
  * @ORM\Entity(repositoryClass="Patlenain\VideotekBundle\Entity\SupportRepository")
- * @UniqueEntity(fields = "code")
+ * @UniqueEntity(fields={"code"}, message="Ce code est déjà utilisé")
  */
 class Support
 {

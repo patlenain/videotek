@@ -2,7 +2,7 @@ Ext.define("Videotek.view.SupportEdit", {
 	extend: "Ext.window.Window",
 	alias: "widget.supportEdit",
 
-	title: "Editer un support",
+	title: "Mettre à jour un support",
 	autoShow: true,
 	layout: 'fit',
 
@@ -27,7 +27,8 @@ Ext.define("Videotek.view.SupportEdit", {
 
 	buttons: [{
 		text: 'Enregistrer',
-		action: 'save'
+		action: 'save',
+		formBind: true
 	}, {
 		text: 'Annuler',
 		handler: function(button) {
