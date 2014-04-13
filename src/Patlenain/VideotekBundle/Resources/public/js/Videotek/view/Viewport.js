@@ -5,7 +5,7 @@ Ext.define("Videotek.view.Viewport", {
 		xtype: "panel",
 		layout: "border",
 		items: [{
-			xtype: "supportsList",
+			xtype: "typesList",
 			region: "center"
 		}]
 	}]

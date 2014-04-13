@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="type")
  * @ORM\Entity(repositoryClass="Patlenain\VideotekBundle\Entity\TypeRepository")
- * @UniqueEntity(fields = "code")
+ * @UniqueEntity(fields={"code"}, message="Ce code est déjà utilisé")
  */
 class Type
 {
@@ -38,7 +38,7 @@ class Type
      *
      * @ORM\Column(name="libelle", type="string", length=255)
      * @Constraints\NotBlank
-     * @Constraints\Length(min=3, max=255)
+     * @Constraints\Length(min="3", max="255")
      */
     private $libelle;
 
