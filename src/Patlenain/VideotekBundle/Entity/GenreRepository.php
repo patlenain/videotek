@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class GenreRepository extends EntityRepository
 {
+	/**
+	 * @return QueryBuilder
+	 */
+	function listAll()
+	{
+		return $this->createQueryBuilder('type')
+			->addOrderBy('type.libelle', 'DESC');
+	}
 }
