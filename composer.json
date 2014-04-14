@@ -1,13 +1,15 @@
 {
+	"name" : "videotek",
+	"description" : "Vidétohèque",
+	"type" : "project",
+	"homepage" : "https://github.com/patlenain/videotek",
 	"authors" : [{
 			"name" : "Patrice Le Gurun",
 			"email" : "patrice@legurun.org",
 			"role" : "Developer"
 		}
 	],
-	"license" : [
-		"AGPL-3.0"
-	],
+	"license" : "AGPL-3.0",
 	"require" : {
 		"symfony/symfony" : "~2.4",
 		"doctrine/doctrine-fixtures-bundle" : "~2.2",
@@ -37,14 +39,14 @@
 		"bin-dir" : "bin"
 	},
 	"scripts" : {
-		"post-update-cmd" : [
+		"post-install-cmd" : [
 			"Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
 			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
 			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
 			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
 			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
 		],
-		"post-install-cmd" : [
+		"post-update-cmd" : [
 			"Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
 			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
 			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
