@@ -5,19 +5,26 @@
         <title>Videotek</title>
         <link rel="stylesheet" href="{{ asset('bundles/patlenainvideotek/css/videotek.css') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('bundles/patlenainvideotek/css/ext-theme-neptune/ext-theme-neptune-all.css') }}" type="text/css" media="all" />
-        <link rel="icon" type="image/png" href="{{ asset('bundles/patlenainvideotek/images/icon.png') }}" />
+        <link rel="icon" type="image/png" href="{{ asset('bundles/patlenainvideotek/images/film.png') }}" />
         <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/ext-all-debug.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/ext-lang-fr.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/ext-theme-neptune.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('bundles/patlenainvideotek/js/videotek.js') }}" ></script>
 <script type="text/javascript">
+Ext.Loader.setConfig({
+	disableCaching: false
+});
+
+var IMAGES_DIR = "{{ asset("bundles/patlenainvideotek/images") }}";
+
 Ext.application({
 	name: "Videotek",
 	appFolder: "{{ asset("bundles/patlenainvideotek/js/Videotek") }}",
 	autoCreateViewport: true,
 	enableQuickTips: true,
-	controllers: [ "Support", "Type", "Genre" ]
+	controllers: [ "Menu", "Support", "Type", "Genre" ]
 });
+
 </script>
     </head>
 <body>
