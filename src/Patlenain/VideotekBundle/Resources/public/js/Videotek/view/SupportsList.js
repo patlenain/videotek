@@ -2,6 +2,7 @@ Ext.define("Videotek.view.SupportsList", {
 	extend: "Ext.grid.Panel",
 	alias: "widget.supportsList",
 	store: "Supports",
+	title: "Liste des supports",
 	columns: [{
 		text: "Code",
 		dataIndex: "code"
