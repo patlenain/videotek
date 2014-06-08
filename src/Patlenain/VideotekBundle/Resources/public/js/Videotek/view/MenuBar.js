@@ -4,34 +4,28 @@ Ext.define("Videotek.view.MenuBar", {
 	items: [{
 		itemId: 'filmsList',
 		text: "Liste des films",
-		tooltip: "Liste des films",
-		toggleGroup: 'menu'
+		tooltip: "Liste des films"
 	}, {
 		itemId: 'randomFilm',
 		text: "Au hasard",
-		tooltip: "Un film au hasard",
-		toggleGroup: 'menu'
+		tooltip: "Un film au hasard"
 	}, {
 		itemId: 'lastFilms',
 		text: "Derniers films",
-		tooltip: "Derniers films enregistrés",
-		toggleGroup: 'menu'
+		tooltip: "Derniers films enregistrés"
 	},
 	'-',
 	{
 		itemId: 'supportsList',
 		text: "Supports",
-		tooltip: "Gestion des supports",
-		toggleGroup: 'menu'
+		tooltip: "Gestion des supports"
 	}, {
 		itemId: 'typesList',
 		text: "Types",
-		tooltip: "Gestion des types",
-		toggleGroup: 'menu'
+		tooltip: "Gestion des types"
 	}, {
 		itemId: 'genresList',
 		text: "Genres",
-		tooltip: "Gestion des genres",
-		toggleGroup: 'menu'
+		tooltip: "Gestion des genres"
 	}]
 });

@@ -5,17 +5,16 @@ Ext.define("Videotek.view.Viewport", {
 		xtype: "menuBar",
 		region: "north"
 	}, {
+		id: "main",
 		xtype: "panel",
 		region: "center",
+		layout: "card",
 		items: [{
-			xtype: "supportsList",
-			hidden: true
+			xtype: "supportsList"
 		}, {
-			xtype: "typesList",
-			hidden: true
+			xtype: "typesList"
 		}, {
-			xtype: "genresList",
-			hidden: true
+			xtype: "genresList"
 		}]
 	}]
 });

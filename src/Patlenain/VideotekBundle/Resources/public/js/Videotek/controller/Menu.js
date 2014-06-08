@@ -1,8 +1,11 @@
 Ext.define('Videotek.controller.Menu', {
 	extend: 'Ext.app.Controller',
-	views: [ 'MenuBar', 'SupportsList' ],
+	views: [ 'MenuBar' ],
 
 	refs: [{
+		ref: 'mainPanel',
+		selector: '#main'
+	}, {
 		ref: 'supportsList',
 		selector: 'supportsList'
 	}, {
@@ -25,23 +28,23 @@ Ext.define('Videotek.controller.Menu', {
 				click: this.listLastFilms
 			},
 			'menuBar button[itemId=supportsList]': {
-				toggle: this.listSupports
+				click: this.listSupports
 			},
 			'menuBar button[itemId=typesList]': {
-				toggle: this.listTypes
+				click: this.listTypes
 			},
 			'menuBar button[itemId=genresList]': {
-				toggle: this.listGenres
+				click: this.listGenres
 			},
 			'menuBar button': {
-				toggle: this.logToggle
+				click: this.logClick
 			}
 		});
 	},
 
-	logToggle: function(button, pressed) {
+	logClick: function(button) {
 		if (console) {
-			console.log("Pressed : " + pressed + " - " + button.itemId);
+			console.log(button.itemId);
 		}
 	},
 
@@ -57,30 +60,15 @@ Ext.define('Videotek.controller.Menu', {
 		
 	},
 
-	listSupports: function(button, pressed) {
-		if (pressed) {
-			this.getSupportsList().show();
-		}
-		else {
-			this.getSupportsList().hide();
-		}
+	listSupports: function(button) {
+		this.getMainPanel().getLayout().setActiveItem(this.getSupportsList());
 	},
 
-	listTypes: function(button, pressed) {
-		if (pressed) {
-			this.getTypesList().show();
-		}
-		else {
-			this.getTypesList().hide();
-		}
+	listTypes: function(button) {
+		this.getMainPanel().getLayout().setActiveItem(this.getTypesList());
 	},
 
-	listGenres: function(button, pressed) {
-		if (pressed) {
-			this.getGenresList().show();
-		}
-		else {
-			this.getGenresList().hide();
-		}
+	listGenres: function(button) {
+		this.getMainPanel().getLayout().setActiveItem(this.getGenresList());
 	}
 });
